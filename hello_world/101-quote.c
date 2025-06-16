@@ -2,8 +2,7 @@
 #include <unistd.h>
 
 /**
- * main - description pour main
- *
+ * main - Infos here
  * Return: 1
  */
 

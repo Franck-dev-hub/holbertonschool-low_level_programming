@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 /**
- * main - description pour main
- * Return: Always 0 (Success)
+ * main - Infos here
+ * Return: 0
  */
 
 int main(void)

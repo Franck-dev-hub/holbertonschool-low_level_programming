@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - description pour main
- *
+ * main - Infos here
  * Return: 0
  */
 int main(void)
