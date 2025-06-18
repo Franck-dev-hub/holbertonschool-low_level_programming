@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
-#include "1-alphabet.c"
 
 /**
  * print_alphabet_x10 - Print alphabet 10 times
