@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * jack_bauer - thing
+ * jack_bauer - oui oui baguette
  *
  * Return: 0
  */
