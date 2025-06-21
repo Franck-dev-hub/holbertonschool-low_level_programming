@@ -8,7 +8,7 @@
 int main(void)
 {
 	int i = 0;
-	long x = 0, y = 1, fibo;
+	long x = 0, y = 1, fibo = 0;
 
 	for (; i < 50; i++)
 	{
