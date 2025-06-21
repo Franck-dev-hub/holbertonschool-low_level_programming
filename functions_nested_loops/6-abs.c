@@ -2,20 +2,20 @@
 
 /**
  * _abs - to print abs value of an int
- * @c: c is a d whitout a bar
+ * @i: i i
  * Return: 0
  */
 
 int _abs(int i)
 {
-if (i < 0)
-{
-int abs_val;
+	if (i < 0)
+	{
+		int abs_val;
 
-abs_val = i * -1;
+		abs_val = i * -1;
 
-return (abs_val);
-}
+		return (abs_val);
+	}
 
-return (c);
+	return (i);
 }

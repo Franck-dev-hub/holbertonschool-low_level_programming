@@ -1,0 +1,12 @@
+# Ignore all
+*
+
+# Un-ignore
+!*/
+!*.c
+!*.h
+!.gitignore
+!README.md
+
+# Specifically ignore files
+*main.c

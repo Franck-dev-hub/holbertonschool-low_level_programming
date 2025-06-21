@@ -1,29 +1,29 @@
 #include "main.h"
 
 /**
- * print_to_98 - world cup i guess
- * @n: it's un number duh
+ * print_to_98 - world cup I guess
+ * @i: it's a number duh
  *
  * Return: 0
  */
 
-void print_to_98(int n)
+void print_to_98(int i)
 {
-	if (n <= 98)
+	if (i <= 98)
 	{
-		for (; n <= 98; n++)
+		for (; i <= 98; i++)
 		{
-			printf("%d", n);
-			if (n != 98)
+			printf("%d", i);
+			if (i != 98)
 				printf(", ");
 		}
 	}
 	else
-{
-		for (; n >= 98; n--)
+	{
+		for (; i >= 98; i--)
 		{
-			printf("%d", n);
-			if (n != 98)
+			printf("%d", i);
+			if (i != 98)
 				printf(", ");
 		}
 	}

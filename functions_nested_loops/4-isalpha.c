@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
- * _isalpha - Check if c is alfpha
- * @c: c is an a without a bar
+ * _isalpha - Check if i is alpha
+ * @i: i is an a without a belly
+ * 
  * Return: 0
  */
 
