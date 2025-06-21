@@ -5,25 +5,37 @@
  *
  * Return: 0
  */
+
 int main(void)
 {
-	int i = 0;
+	unsigned long i;
+	unsigned long high_1 = 0, low_1 = 1;
+	unsigned long high_2 = 0, low_2 = 2;
+	unsigned long high = 0, low = 0;
+	unsigned long const BASE = 1000000000;
 
-	long double x = 0, y = 1, fibo = 0;
+	printf("1, 2");
 
-	for (; i < 98; i++)
+	for (i = 2; i < 98; i++)
 	{
-		fibo = x + y;
+		low = low_1 + low_2;
+		high = high_1 + high_2;
+		if (low >= BASE)
+		{
+			low -= BASE;
+			high += 1;
+		}
 
-		printf("%.0Lf", fibo);
-
-		if (i < 97)
-			printf(", ");
+		if (high > 0)
+			printf(", %lu%09lu", high, low);
 		else
-			printf("\n");
+			printf(", %lu", low);
 
-		x = y;
-		y = fibo;
+		high_1 = high_2;
+		low_1 = low_2;
+		high_2 = high;
+		low_2 = low;
 	}
+	printf("\n");
 	return (0);
 }
