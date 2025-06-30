@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-/* Project 2 : "C - Pointers, arrays and strings" */
+/* Project : "C - Pointers, arrays and strings" */
 int _putchar(char c);
 void reset_to_98(int *n);
 void swap_int(int *a, int *b);
@@ -15,7 +15,7 @@ void print_array(int *a, int n);
 char *_strcpy(char *dest, char *src);
 int _atoi(char *s);
 
-/* Project 3 : "C - More pointers, arrays and strings" */
+/* Project : "C - More pointers, arrays and strings" */
 char *_strcat(char *dest, char *src);
 char *_strncat(char *dest, char *src, int n);
 char *_strncpy(char *dest, char *src, int n);
@@ -27,5 +27,8 @@ char *leet(char *str);
 char *rot13(char *str);
 void print_number(int n);
 char *infinite_add(char *n1, char *n2, char *r, int size_r);
+
+/* Project : C - Even more pointers, arrays and strings */
+char *_memset(char *s, char b, unsigned int n);
 
 #endif
