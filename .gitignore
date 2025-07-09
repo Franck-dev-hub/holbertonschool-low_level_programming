@@ -11,3 +11,4 @@
 # Specifically ignore files
 *main.c
 _putchar.c
+c_pattern.c
