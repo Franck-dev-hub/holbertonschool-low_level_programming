@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <string.h>
 #include <ctype.h>
 
 /**
@@ -12,8 +13,7 @@
 
 int main(int argc, char *argv[])
 {
-	int i;
-	unsigned long int mul = 0, num1 = 0, num2 = 0;
+	int i, j, len1, len2, mul = 0, sum = 0, *res;
 
 	if (argc != 3 || !*argv[1] || !*argv[2])
 		return (printf("Error\n"), exit(98), 98);
@@ -26,10 +26,29 @@ int main(int argc, char *argv[])
 		if (!isdigit(argv[2][i]))
 			return (printf("Error\n"), exit(98), 98);
 
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[2]);
+	len1 = strlen(argv[1]), len2 = strlen(argv[2]);
+	res = calloc(len1 + len2, sizeof(int));
+	if (!res)
+		return (printf("Error\n"), exit(98), 98);
 
-	mul = num1 * num2;
-	printf("%li\n", mul);
+	for (i = len1 - 1; i >= 0; i--)
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			mul = (argv[1][i] - '0') * (argv[2][j] - '0');
+			sum = mul + res[i + j + 1];
+			res[i + j + 1] = sum % 10;
+			res[i + j] += sum / 10;
+		}
+
+	for (i = 0; i < len1 + len2 && res[i] == 0; i++)
+		;
+
+	if (i == len1 + len2)
+		putchar('0');
+
+	for (; i < len1 + len2; i++)
+		putchar(res[i] + '0');
+	putchar('\n');
+	free(res);
 	return (0);
 }
