@@ -71,7 +71,7 @@ void print_all(const char * const format, ...)
 	char *sep = "";
 	char symbols[] = {'c', 'i', 'f', 's', '\0'};
 
-	void (*sub_fun[])(va_list) = {print_char, print_int, print_float, print_string};
+	void (*func[])(va_list) = {print_char, print_int, print_float, print_string};
 
 	va_start(args, format);
 
@@ -83,7 +83,7 @@ void print_all(const char * const format, ...)
 			if (symbols[j] == format[i])
 			{
 				printf("%s", sep);
-				sub_fun[j](args);
+				func[j](args);
 				sep = ", ";
 				break;
 			}
