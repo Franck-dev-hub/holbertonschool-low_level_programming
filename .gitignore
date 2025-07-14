@@ -5,6 +5,7 @@
 !*/
 !*.c
 !*.h
+!*.asm
 !.gitignore
 !README.md
 
