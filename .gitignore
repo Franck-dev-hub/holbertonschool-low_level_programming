@@ -12,3 +12,6 @@
 *main.c
 _putchar.c
 c_pattern.c
+
+# Specifically unignore files
+!/function_pointers/3-main.c
