@@ -16,3 +16,4 @@ c_pattern.c
 
 # Specifically unignore files
 !/function_pointers/3-main.c
+!/pointers_arrays_strings/101-crackme_password
