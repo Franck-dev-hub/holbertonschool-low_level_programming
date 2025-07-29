@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * add_node - Add a node at the begin
+ * add_dnodeint - Add a node at the begin
  * @head: head
  * @n: node's data
  *
