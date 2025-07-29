@@ -12,6 +12,7 @@ list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *new, *current;
 	char *temp;
+	int len = O;
 
 	if (!str)
 		return (NULL);
@@ -27,8 +28,11 @@ list_t *add_node_end(list_t **head, const char *str)
 		return (NULL);
 	}
 
+	while (temp[len])
+		len++;
+
 	new->str = temp;
-	new->len = strlen(str);
+	new->len = len;
 	new->next = NULL;
 
 	if (!*head)
