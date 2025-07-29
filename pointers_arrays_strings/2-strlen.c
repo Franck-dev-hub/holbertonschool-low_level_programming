@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _strlen - Length of my string è_é
- * @s: sssssssstring !
+ * _strlen - Computes the length of a string.
+ * @s: Pointer to the null-terminated string to measure.
  *
- * Return: 0
+ * Return: The number of characters in the string.
  */
 
 int _strlen(char *s)
