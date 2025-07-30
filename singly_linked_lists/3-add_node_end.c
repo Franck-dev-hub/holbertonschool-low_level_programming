@@ -12,7 +12,7 @@ list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *new, *current;
 	char *temp;
-	int len = O;
+	int len = 0;
 
 	if (!str)
 		return (NULL);
@@ -47,4 +47,3 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	return (new);
 }
-
