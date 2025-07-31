@@ -11,7 +11,10 @@
 int main(int argc, char **argv)
 {
 	if (argc != 3)
-		print_error("Usage: cp file_from file_to\n", 97);
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
 
 	copy_text_to_file(argv[1], argv[2]);
 
@@ -19,20 +22,17 @@ int main(int argc, char **argv)
 }
 
 /**
-  * print_error - Function to print errors.
-  * @msg: Message to print.
-  * @arg: File.
-  * @code: Exit code.
-  *
-  * Return: Void
-  */
+ * print_error - Function to print errors.
+ * @msg: Message to print.
+ * @arg: File.
+ * @code: Exit code.
+ *
+ * Return: Void
+ */
 
 void print_error(const char *msg, const char *arg, int code)
 {
-	if (arg)
-		dprintf(STDERR_FILENO, msg, arg);
-	else
-		dprintf(STDERR_FILENO, "%s", msg);
+	dprintf(STDERR_FILENO, msg, arg);
 	exit(code);
 }
 
@@ -69,10 +69,15 @@ int copy_text_to_file(const char *file_from, const char *file_to)
 	}
 
 	if (close(file_from_cp) == -1)
-		print_error("Error: Can't close fd %d\n", file_from_cp, 100);
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from_cp);
+		exit(100);
+	}
 
 	if (close(file_to_cp) == -1)
-		print_error("Error: Can't close fd %d\n", file_to_cp, 100);
-
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to_cp);
+		exit(100);
+	}
 	return (1);
 }
