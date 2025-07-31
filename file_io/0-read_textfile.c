@@ -11,7 +11,7 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int file;
-	char*buffer;
+	char *buffer;
 	ssize_t bytes_read, bytes_written;
 
 	file = open(filename, O_RDONLY);
@@ -36,7 +36,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	close(file);
 
 	if (bytes_written == bytes_read)
-		return bytes_read;
+		return (bytes_read);
 	else
 		return (0);
 }
