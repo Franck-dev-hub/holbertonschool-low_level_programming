@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * append_tect_to_file - Add content at the EOF.
+ * append_text_to_file - Add content at the EOF.
  * @filename: File's name.
  * @text_content: Text tu add at the EOF.
  *
- * Return : 1 on success or -1 on failure.
+ * Return: 1 on success or -1 on failure.
  */
 
 int append_text_to_file(const char *filename, char *text_content)
