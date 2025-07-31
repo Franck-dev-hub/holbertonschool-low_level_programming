@@ -47,7 +47,7 @@ void print_error(const char *msg, const char *arg, int code)
 int copy_text_to_file(const char *file_from, const char *file_to)
 {
 	int file_from_cp, file_to_cp;
-	ssize_t bytes_read, bytes_written;
+	ssize_t bytes_read, bytes_written, total_written = 0;
 	char buffer[1024];
 
 	file_from_cp = open(file_from, O_RDONLY);
@@ -60,11 +60,16 @@ int copy_text_to_file(const char *file_from, const char *file_to)
 
 	while ((bytes_read = read(file_from_cp, buffer, 1024)) > 0)
 	{
-		bytes_written = write(file_to_cp, buffer, bytes_read);
-		if (bytes_written == -1)
+		while (total_written < bytes_read)
 		{
-			close(file_from_cp);
-			print_error("Error: Can't write to %s\n", file_to, 99);
+			bytes_written = write(file_to_cp, buffer + total_written, bytes_read - total_written);
+			if (bytes_written == -1)
+			{
+				close(file_from_cp);
+				close(file_to_cp);
+				print_error("Error: Can't write to %s\n", file_to, 99);
+			}
+			total_written += bytes_written;
 		}
 	}
 
