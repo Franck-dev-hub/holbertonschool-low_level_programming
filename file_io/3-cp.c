@@ -58,8 +58,14 @@ int copy_text_to_file(const char *file_from, const char *file_to)
 	if (file_to_cp == -1)
 		print_error("Error: Can't write to %s\n", file_to, 99);
 
-	while ((bytes_read = read(file_from_cp, buffer, 1024)) > 0)
+	while ((bytes_read = read(file_from_cp, buffer, 1024)) != 0)
 	{
+		if (bytes_read == -1)
+		{
+			close(file_from_cp);
+			close(file_to_cp);
+			print_error("Error: Can't read from file %s\n", file_from, 98);
+		}
 		bytes_written = write(file_to_cp, buffer, bytes_read);
 		if (bytes_written == -1)
 		{
@@ -69,12 +75,6 @@ int copy_text_to_file(const char *file_from, const char *file_to)
 		}
 	}
 
-	if (bytes_read == -1)
-	{
-		close(file_from_cp);
-		close(file_to_cp);
-		print_error("Error: Can't read from file %s\n", file_from, 98);
-	}
 	if (close(file_from_cp) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from_cp);
