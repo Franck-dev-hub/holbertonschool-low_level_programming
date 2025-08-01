@@ -55,19 +55,14 @@ int copy_text_to_file(const char *file_from, const char *file_to)
 	file_from_cp = open(file_from, O_RDONLY);
 	if (file_from_cp == -1)
 		print_error("Error: Can't read from file %s\n", file_from, 98);
-
 	file_to_cp = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (file_to_cp == -1)
-		print_error("Error: Can't write to %s\n", file_to, 99);
-
-	while ((bytes_read = read(file_from_cp, buffer, 1024)) != 0)
 	{
-		if (bytes_read == -1)
-		{
-			close(file_from_cp);
-			close(file_to_cp);
-			print_error("Error: Can't read from file %s\n", file_from, 98);
-		}
+		close(file_from_cp);
+		print_error("Error: Can't write to %s\n", file_to, 99);
+	}
+	while ((bytes_read = read(file_from_cp, buffer, sizeof(buffer))) > 0)
+	{
 		bytes_written = write(file_to_cp, buffer, bytes_read);
 		if (bytes_written == -1)
 		{
@@ -76,7 +71,12 @@ int copy_text_to_file(const char *file_from, const char *file_to)
 			print_error("Error: Can't write to %s\n", file_to, 99);
 		}
 	}
-
+	if (bytes_read == -1)
+	{
+		close(file_from_cp);
+		close(file_to_cp);
+		print_error("Error: Can't read from file %s\n", file_from, 98);
+	}
 	if (close(file_from_cp) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from_cp);
@@ -87,5 +87,5 @@ int copy_text_to_file(const char *file_from, const char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to_cp);
 		exit(100);
 	}
-	return (1);
+	return (0);
 }
