@@ -11,24 +11,24 @@ hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *table;
 
-	if (!size)
+	if (size == 0)
 		return (NULL);
 
 	/* Allocate memory for the hash table */
 	table = malloc(sizeof(hash_table_t));
-	if (!table)
+	if (table == NULL)
 		return (NULL);
+
+	/* Set table size */
+	table->size = size;
 
 	/* Init array of hash node */
 	table->array = calloc(size, sizeof(hash_node_t *));
-	if (!table->array)
+	if (table->array == NULL)
 	{
 		free(table);
 		return (NULL);
 	}
-
-	/* Set table size */
-	table->size = size;
 
 	return (table);
 }
