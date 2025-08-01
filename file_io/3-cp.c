@@ -10,9 +10,11 @@
 
 int main(int argc, char **argv)
 {
+	char *prog_name = "cp";
+
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", prog_name);
 		exit(97);
 	}
 
