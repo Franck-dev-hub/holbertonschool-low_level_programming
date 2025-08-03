@@ -18,4 +18,5 @@ c_pattern.c
 !/function_pointers/3-main.c
 !/pointers_arrays_strings/101-crackme_password
 !/doubly_linked_lists/100-password
+!/doubly_linked_lists/102-result
 
