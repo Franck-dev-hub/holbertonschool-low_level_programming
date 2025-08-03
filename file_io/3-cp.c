@@ -80,5 +80,5 @@ int main(int argc, char *argv[])
 		print_error_d("Error: Can't close fd %d\n", file_from, 100);
 	if (close(file_to) == -1)
 		print_error_d("Error: Can't close fd %d\n", file_to, 100);
-	return (0);
+	return (1);
 }
